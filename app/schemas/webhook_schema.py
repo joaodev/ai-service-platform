@@ -1,4 +1,4 @@
-from pydantic import BaseModel, HttpUrl
+from pydantic import BaseModel, ConfigDict, HttpUrl
 
 from app.events.event_types import EventType
 
@@ -19,5 +19,4 @@ class WebhookConfigResponse(BaseModel):
     target_url: str
     active: bool
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)

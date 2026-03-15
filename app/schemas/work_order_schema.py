@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 from app.models.work_order import WorkOrderStatus
 
@@ -21,5 +21,4 @@ class WorkOrderResponse(BaseModel):
     started_at: datetime | None
     finished_at: datetime | None
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)

@@ -1,6 +1,6 @@
 from datetime import date, datetime
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 from app.models.accounts_payable import AccountsPayableStatus
 from app.models.accounts_receivable import AccountsReceivableStatus
@@ -22,8 +22,7 @@ class TransactionResponse(BaseModel):
     description: str | None
     created_at: datetime
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class AccountsPayableCreate(BaseModel):
@@ -42,8 +41,7 @@ class AccountsPayableResponse(BaseModel):
     due_date: date
     status: AccountsPayableStatus
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class AccountsReceivableCreate(BaseModel):
@@ -62,5 +60,4 @@ class AccountsReceivableResponse(BaseModel):
     due_date: date
     status: AccountsReceivableStatus
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
