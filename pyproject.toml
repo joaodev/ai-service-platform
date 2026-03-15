@@ -1,0 +1,14 @@
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+exclude = [
+    "alembic/versions",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"app/database/base.py" = ["E402", "F401"]
+"scripts/seed_admin_user.py" = ["E402"]
