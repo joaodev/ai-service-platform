@@ -1,0 +1,21 @@
+from datetime import datetime
+
+from pydantic import BaseModel
+
+
+class UserCreate(BaseModel):
+    name: str
+    email: str
+    password: str
+    role_name: str = "CLIENT"
+
+
+class UserResponse(BaseModel):
+    id: int
+    name: str
+    email: str
+    role: str
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
